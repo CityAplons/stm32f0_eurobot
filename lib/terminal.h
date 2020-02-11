@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #define TERM_CH_LENGTH          255
-#define TERM_CMD_LENGTH         10
+#define TERM_CMD_LENGTH         20
 
 typedef struct {
         uint8_t channel[TERM_CH_LENGTH];

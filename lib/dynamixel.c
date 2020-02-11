@@ -125,7 +125,7 @@ static void dyn_disable_torque(void)
     /*
      * Reset power supply with thransistor
      */
-    LL_GPIO_ResetOutputPin(DYN_RESET_PORT, DYN_RESET_PIN);
+    //LL_GPIO_ResetOutputPin(DYN_RESET_PORT, DYN_RESET_PIN);
     return;
 }
 
@@ -146,10 +146,12 @@ void dynamixel_init()
                        LL_GPIO_MODE_ALTERNATE);
     LL_GPIO_SetAFPin_8_15(DYNAMIXEL_USART_PORT, DYNAMIXEL_USART_PIN,
                           DYNAMIXEL_USART_PIN_AF);
+    LL_GPIO_SetPinOutputType(DYNAMIXEL_USART_PORT, DYNAMIXEL_USART_PIN,
+                             LL_GPIO_OUTPUT_PUSHPULL);
+    LL_GPIO_SetPinPull(TERM_USART_TX_PORT, TERM_USART_TX_PIN,
+                       LL_GPIO_PULL_DOWN);
     LL_GPIO_SetPinSpeed(DYNAMIXEL_USART_PORT, DYNAMIXEL_USART_PIN,
                         LL_GPIO_SPEED_FREQ_HIGH);
-    LL_GPIO_SetPinOutputType(DYNAMIXEL_USART_PORT, DYNAMIXEL_USART_PIN,
-                             LL_GPIO_OUTPUT_OPENDRAIN);
     /*
      * USART Setting
      */
