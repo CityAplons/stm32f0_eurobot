@@ -2,8 +2,8 @@
 # Makefile for STM32F0 Discovery board projects
 
 OUTPATH = build
-PROJECT = $(OUTPATH)\\blank
-OPENOCD_SCRIPT_DIR ?= C:\\ST\\xpack-openocd-0.10.0-15\\scripts
+PROJECT = $(OUTPATH)/blank
+OPENOCD_SCRIPT_DIR ?= /usr/share/openocd/scripts
 HEAP_SIZE = 0x400
 
 ################
@@ -52,8 +52,8 @@ OBJDUMP = $(PREFIX)-objdump
 READELF = $(PREFIX)-readelf
 SIZE = $(PREFIX)-size
 GDB = $(PREFIX)-gdb
-RM = erase /s
-OPENOCD=C:\\ST\\xpack-openocd-0.10.0-15\\bin\\openocd.exe
+RM = rm -f
+OPENOCD=openocd
 
 # Compiler options
 
@@ -78,11 +78,11 @@ all: dirs $(PROJECT).bin $(PROJECT).asm
 dirs: ${OUTPATH}
 
 ${OUTPATH}:
-	mkdir ${OUTPATH}
+	mkdir -p ${OUTPATH}
 
 clean:
-	$(RM) *.o $(PROJECT).elf $(PROJECT).bin $(PROJECT).asm
-	erase /s ${OUTPATH}
+	$(RM) $(OBJS) $(PROJECT).elf $(PROJECT).bin $(PROJECT).asm
+	rm -rf ${OUTPATH}
 
 # Hardware specific
 
