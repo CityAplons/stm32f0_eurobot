@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\ST\\arm-gcc\\arm-none-eabi\\include\\**",
+                "C:\\ST\\arm-gcc\\arm-none-eabi\\include\\sys",
+                "${workspaceFolder}/plib/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32F0xx"
+            ],
+            "compilerPath": "C:\\ST\\arm-gcc\\bin\\arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
